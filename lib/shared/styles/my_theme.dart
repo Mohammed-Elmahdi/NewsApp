@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class MyThemeData {
-  static Color primaryColor = Color(0xFF23CC3F);
+  static Color primaryColor = Color(0xFF39A552);
   static Color OnprimaryColor = Color(0xFFDFECDB);
 
 // static Color primaryColorDark = Color(0xFF12182A);
@@ -37,8 +37,8 @@ class MyThemeData {
     // ),
     textTheme: TextTheme(
       headline1: TextStyle(
-        fontSize: 30,
-        color: WhiteColor,
+        fontSize: 14,
+        color: BlackColor,
         fontWeight: FontWeight.w700,
       ),
       headline2: TextStyle(
@@ -52,8 +52,8 @@ class MyThemeData {
         fontWeight: FontWeight.w400,
       ),
       subtitle1: TextStyle(
-        fontSize: 25,
-        color: BlackColor,
+        fontSize: 10,
+        color: Colors.grey,
         fontWeight: FontWeight.w500,
       ),
       bodyText1: TextStyle(
@@ -68,35 +68,35 @@ class MyThemeData {
     FloatingActionButtonThemeData(backgroundColor: primaryColor),
   );
 
-// static final ThemeData darkTheme = ThemeData(
-//     primaryColor: primaryColorDark,
-//     appBarTheme: AppBarTheme(
-//         centerTitle: true,
-//         color: Colors.transparent,
-//         elevation: 0,
-//         iconTheme: IconThemeData(color: WhiteColor)),
-//     textTheme: TextTheme(
-//       headline1: TextStyle(
-//         fontSize: 30,
-//         color: WhiteColor,
-//         fontWeight: FontWeight.w700,
-//       ),
-//       headline2: TextStyle(
-//         fontSize: 25,
-//         color: YellowColor,
-//         fontWeight: FontWeight.w400,
-//       ),
-//       subtitle1: TextStyle(
-//         fontSize: 25,
-//         color: YellowColor,
-//         fontWeight: FontWeight.w500,
-//       ),
-//       bodyText1: TextStyle(
-//         fontSize: 20,
-//         color: YellowColor,
-//         fontWeight: FontWeight.w500,
-//       ),
-//     ),
-//     bottomNavigationBarTheme: BottomNavigationBarThemeData(
-//         selectedItemColor: YellowColor, unselectedItemColor: Colors.white));
+static final ThemeData darkTheme = ThemeData(
+    primaryColor: primaryColor,
+    appBarTheme: AppBarTheme(
+        centerTitle: true,
+        color: Colors.transparent,
+        elevation: 0,
+        iconTheme: IconThemeData(color: WhiteColor)),
+    textTheme: TextTheme(
+      headline1: TextStyle(
+        fontSize: 30,
+        color: WhiteColor,
+        fontWeight: FontWeight.w700,
+      ),
+      headline2: TextStyle(
+        fontSize: 25,
+        color: Colors.black,
+        fontWeight: FontWeight.w400,
+      ),
+      subtitle1: TextStyle(
+        fontSize: 25,
+        color: Colors.black,
+        fontWeight: FontWeight.w500,
+      ),
+      bodyText1: TextStyle(
+        fontSize: 20,
+        color: Colors.black,
+        fontWeight: FontWeight.w500,
+      ),
+    ),
+    bottomNavigationBarTheme: BottomNavigationBarThemeData(
+        selectedItemColor: Colors.black, unselectedItemColor: Colors.white));
 }

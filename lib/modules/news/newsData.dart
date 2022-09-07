@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:news_app/models/SourcesResponse.dart';
+import 'package:news_app/modules/news/newsItem.dart';
 import 'package:news_app/shared/network/remote/api_manager.dart';
 
 import '../../../models/NewsResponse.dart';
@@ -12,7 +13,7 @@ NewsData(this.newsSource);
   @override
   Widget build(BuildContext context) {
     return FutureBuilder<NewsResponse>(
-      future: ApiManager.getNews(newsSource),
+      future: ApiManager.getNews(newsSource,""),//for search
         builder: (_,snapshot){
           if(snapshot.connectionState==ConnectionState.waiting){
             return Center(child: CircularProgressIndicator());
@@ -40,7 +41,7 @@ NewsData(this.newsSource);
           return ListView.builder(
             itemCount:newsList.length ,
               itemBuilder: (_,index){
-              return Text(newsList[index].title??"");
+              return NewsItem(newsList[index]);
               });
 
         },

@@ -7,9 +7,10 @@ import '../../../models/NewsResponse.dart';
 import '../../../models/SourcesResponse.dart';
 //uri: uniform resource identifier
 class ApiManager{
-  static Future<SourcesResponse>getSources()async{
+  static Future<SourcesResponse>getSources(String categoryID)async{
     var uri=Uri.https(BASEURL, '/v2/top-headlines/sources',
-                      {"apikey":APIKEY});
+                      {"apikey":APIKEY,'category':categoryID});
+    //categoryID to show news by id
 
     var response=await http.get(uri);
     try {
@@ -23,8 +24,9 @@ class ApiManager{
     
   }
 
-  static Future<NewsResponse>getNews(Sources source)async{
-    var uri=Uri.https(BASEURL, '/v2/everything',{"apikey":APIKEY,"sources":source.id});
+  static Future<NewsResponse>getNews(Sources source,String search)async{
+    var uri=Uri.https(BASEURL, '/v2/everything',
+        {"apikey":APIKEY,"sources":source.id});
     var response=await http.get(uri);
     try {
       var json = jsonDecode(response.body);
