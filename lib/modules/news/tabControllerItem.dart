@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:news_app/modules/home/news/news.dart';
-import 'package:news_app/modules/home/tabItem.dart';
+import 'package:news_app/modules/news/newsData.dart';
+import 'package:news_app/modules/news/tabItem.dart';
 
 import '../../models/SourcesResponse.dart';
 
@@ -19,7 +19,8 @@ class _TabControllerItemState extends State<TabControllerItem> {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        DefaultTabController(length: widget.sources.length,
+        DefaultTabController(
+            length: widget.sources.length,
             child: TabBar(
               isScrollable: true,
               indicatorColor: Colors.transparent,//to mark selected
