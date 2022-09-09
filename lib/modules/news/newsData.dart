@@ -13,7 +13,7 @@ NewsData(this.newsSource);
   @override
   Widget build(BuildContext context) {
     return FutureBuilder<NewsResponse>(
-      future: ApiManager.getNews(newsSource,""),//for search
+      future: ApiManager.getNews( newsSource),//for search
         builder: (_,snapshot){
           if(snapshot.connectionState==ConnectionState.waiting){
             return Center(child: CircularProgressIndicator());
