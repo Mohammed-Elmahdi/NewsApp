@@ -1,0 +1,15 @@
+{
+    "sports": "Sports",
+    "entertainment": "Entertainment",
+    "health": "Health",
+    "business": "Business",
+    "technology": "Technology",
+    "science": "Science",
+    "news_app": "News App",
+    "categories": "Categories",
+    "settings": "Settings",
+    "language": "Language",
+    "english": "English",
+    "arabic": "Arabic",
+    "choose":"Choose category"
+}

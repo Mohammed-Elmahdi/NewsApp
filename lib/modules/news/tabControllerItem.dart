@@ -17,27 +17,33 @@ class _TabControllerItemState extends State<TabControllerItem> {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        DefaultTabController(
-            length: widget.sources.length,
-            child: TabBar(
-              isScrollable: true,
-              indicatorColor: Colors.transparent,//to mark selected
-              onTap: (index){
-                isSelectedIndex=index;
-                setState(() {
+    return
+      Stack(
+        children: [
+          Image.asset('assets/images/pattern.png',fit: BoxFit.cover,height: double.infinity),
+          Column(
+          children: [
+            DefaultTabController(
+                length: widget.sources.length,
+                child: TabBar(
+                  isScrollable: true,
+                  indicatorColor: Colors.transparent,//to mark selected
+                  onTap: (index){
+                    isSelectedIndex=index;
+                    setState(() {
 
-                });
-              },
-              //to convert Lis<sources> to List<widget>(List<Item>)
-              tabs: widget.sources.map((sourcesOne) =>
-                  TabItem(sourcesOne,
-                      isSelectedIndex==widget.sources.indexOf(sourcesOne))).toList(),
-            )),
-        
-        Expanded(child: NewsData(widget.sources[isSelectedIndex]))
-      ],
-    );
+                    });
+                  },
+                  //to convert Lis<sources> to List<widget>(List<Item>)
+                  tabs: widget.sources.map((sourcesOne) =>
+                      TabItem(sourcesOne,
+                          isSelectedIndex==widget.sources.indexOf(sourcesOne))).toList(),
+                )),
+
+            Expanded(child: NewsData(widget.sources[isSelectedIndex]))
+          ],
+    ),
+        ],
+      );
   }
 }
