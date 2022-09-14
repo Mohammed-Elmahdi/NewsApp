@@ -7,9 +7,14 @@ import '../../../models/NewsResponse.dart';
 import '../../../models/SourcesResponse.dart';
 //uri: uniform resource identifier
 class ApiManager{
-  static Future<SourcesResponse>getSources()async{
+  static Future<SourcesResponse>getSources(String categoryID,String language)async{
     var uri=Uri.https(BASEURL, '/v2/top-headlines/sources',
-                      {"apikey":APIKEY});
+                      {
+                        "apikey":APIKEY,
+                        'category':categoryID,
+                        "language": language,
+                      },);
+    //categoryID to show news by id
 
     var response=await http.get(uri);
     try {
@@ -23,8 +28,13 @@ class ApiManager{
     
   }
 
-  static Future<NewsResponse>getNews(Sources source)async{
-    var uri=Uri.https(BASEURL, '/v2/everything',{"apikey":APIKEY,"sources":source.id});
+  static Future<NewsResponse>getNews(Sources source,String language ,{int? page})async{
+    var uri=Uri.https(BASEURL, '/v2/everything',
+        {"apikey":APIKEY,"sources":source.id,
+          'pageSize':'20',
+          'page':'$page',
+          "language": language,
+        });
     var response=await http.get(uri);
     try {
       var json = jsonDecode(response.body);
@@ -33,6 +43,23 @@ class ApiManager{
     }catch(e){
       throw e;
     }
+    
+
+  }
+  static Future<NewsResponse>getNewsSearch(String search/*,int page*/)async{
+    var uri=Uri.https(BASEURL, '/v2/everything',
+        {"apikey":APIKEY,"q":search,'pageSize':'20',
+          // 'page':'$page'
+        });
+    var response=await http.get(uri);
+    try {
+      var json = jsonDecode(response.body);
+      var newsResponse = NewsResponse.fromJson(json);
+      return newsResponse;
+    }catch(e){
+      throw e;
+    }
+
 
   }
 }
